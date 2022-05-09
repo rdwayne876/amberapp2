@@ -40,25 +40,36 @@
                 </thead>
                 <tbody class="text-sm divide-y divide-gray-100">
                   <% projects.forEach( function( project) { %>
-                    <tr>
-                      <td class="p-2 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full"
-                              src="https://picsum.photos/200"
-                              width="40" height="40" alt="Alex Shatov"></div>
-                          <div class="font-medium text-gray-800"><%= project.project_title %> </div>
-                        </div>
-                      </td>
-                      <td class="p-2 whitespace-nowrap">
-                        <div class="text-left"><%= project.project_description %> </div>
-                      </td>
-                      <td class="p-2 whitespace-nowrap">
-                        <div class="text-center font-medium text-green-500"><%= project.project_start_dt.toDateString() %> </div>
-                      </td>
-                      <td class="p-2 whitespace-nowrap">
-                        <div class="text-lg text-center"><%= project.project_due_dt.toDateString() %> </div>
-                      </td>
-                    </tr>   
+                    <a href="/notes/<%=project.id%>">
+                      <tr>
+                        <td class="p-2 whitespace-nowrap">
+                          <a href="/notes/<%= project.id%>">
+                            <div class="flex items-center">
+                              <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full"
+                                  src="https://picsum.photos/200" width="40" height="40" alt="Alex Shatov"></div>
+                              <div class="font-medium text-gray-800">
+                                <%= project.project_title %>
+                              </div>
+                            </div>
+                          </a>
+                        </td>
+                        <td class="p-2 whitespace-nowrap">
+                          <div class="text-left">
+                              <%= project.project_description %>
+                          </div>
+                        </td>
+                        <td class="p-2 whitespace-nowrap">
+                          <div class="text-center font-medium text-green-500">
+                            <%= project.project_start_dt.toDateString() %>
+                          </div>
+                        </td>
+                        <td class="p-2 whitespace-nowrap">
+                          <div class="text-lg text-center">
+                            <%= project.project_due_dt.toDateString() %>
+                          </div>
+                        </td>
+                      </tr>
+                    </a>
                     <% }) %>
                 </tbody>
               </table>
